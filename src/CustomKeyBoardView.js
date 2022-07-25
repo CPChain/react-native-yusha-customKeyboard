@@ -10,6 +10,7 @@ import {
     Image,
     View,
     StyleSheet,
+    Platform,
     findNodeHandle,
     DeviceInfo,
 } from 'react-native';
@@ -17,12 +18,14 @@ import {
 //提示
 import {KeyTip} from './views'
 
+import elementsTestId from 'elements-test-id';
+
 export default class KeyBoard extends Component{
-    state: Object
-    backSpaceRequest: number
-    insertTextRequest: number
-    clearFocusRequest: number
-    clearAllRequest: number
+    state 
+    backSpaceRequest 
+    insertTextRequest 
+    clearFocusRequest 
+    clearAllRequest 
 
     static propTypes = {
         insertText: PropTypes.func.isRequired,
@@ -56,7 +59,8 @@ export default class KeyBoard extends Component{
     _clearFocus = () => {
         this.clearFocusRequest && cancelAnimationFrame(this.clearFocusRequest)
         this.clearFocusRequest = requestAnimationFrame(() => {
-            this.props.clearFocus(this.props.tag)
+            this.props.clearFocus(this.props.tag) 
+            this.props.doneCallBack && this.props.doneCallBack(this.props.tag)
         })
     }
 
@@ -109,10 +113,11 @@ export default class KeyBoard extends Component{
     }
 
     render() {
-        const {KeyBoardView} = this.props
+        const {KeyBoardView} = this.props 
 
         return (
-            <View onLayout={this._onLayout} style={styles.container} ref="keyboard" pointerEvents="box-none">
+            <View
+              onLayout={this._onLayout} style={styles.container} ref="keyboard" pointerEvents="box-none">
                 <View style={styles.keyBoard} key="keyboard">
                     {
                         !KeyBoardView.customKeyboardTop && (
@@ -124,7 +129,7 @@ export default class KeyBoard extends Component{
                                     <Text style={styles.topDesText}>{KeyBoardView.getKeyBoardName && KeyBoardView.getKeyBoardName()}</Text>
                                 </View>
                                 <TouchableOpacity onPress={this._clearFocus}>
-                                    <Text style={styles.topCompleteText}>完成</Text>
+                                    <Text style={styles.topCompleteText}>{KeyBoardView.getDoneText && KeyBoardView.getDoneText() || 'Done'}</Text>
                                 </TouchableOpacity>
                             </View>
                         )
@@ -145,13 +150,14 @@ export default class KeyBoard extends Component{
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: 'transparent',
-        justifyContent: 'flex-end',
+      marginTop: Platform.OS == 'ios' ? 0 : 54,
+      backgroundColor: 'transparent',
+      justifyContent: 'flex-end', 
+      height: 252
     },
     keyBoard: {
         backgroundColor: '#f6f5f2',
-        height: DeviceInfo.isIPhoneX_deprecated ? 286 : 252,
+        height: 252,
     },
     top: {
         height: 36,

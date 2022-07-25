@@ -14,8 +14,8 @@ const HEIGHT = screen.height;
 
 export default class Display extends Component {
 
-  view: Object
-  state: Object
+  view 
+  state 
 
   constructor() {
     super(...arguments);
@@ -23,7 +23,7 @@ export default class Display extends Component {
     this.state = { enable: this.props.enable };
   }
 
-  componentWillUpdate(nextProps: Object, nextState: Object) {
+  componentWillUpdate(nextProps , nextState ) {
 
     if (nextProps.enable != this.props.enable) {
       if (nextProps.enable == false)

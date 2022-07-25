@@ -23,6 +23,8 @@ export default class MyKeyboard extends Component {
       }
   }
 
+  
+
   _handerChangeABC = () => {
       this._handleChangeKeyboard('ABC')
   }

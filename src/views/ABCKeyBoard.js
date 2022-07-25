@@ -4,15 +4,18 @@ import {
   Text,
   View,
   Image,
-    DeviceInfo,
+  DeviceInfo,
 } from 'react-native';
 
 import * as StyleSheet from './MyStyleSheet'
 import DisplayView from './DisplayView'
 import KeysRow from './KeysRow'
-
+const shuffle = (v) => {
+  for (var j, x, i = v.length; i; j = parseInt(Math.random() * i), x = v[--i], v[i] = v[j], v[j] = x);
+  return v;
+};
 class UPKeyBoard extends PureComponent {
-  render() {
+  render () {
     return (
       <View>
         {this.props.rows}
@@ -22,7 +25,7 @@ class UPKeyBoard extends PureComponent {
 }
 
 class DownKeyBoard extends PureComponent {
-  render() {
+  render () {
     return (
       <View>
         {this.props.rows}
@@ -39,13 +42,13 @@ export default class ABCKeyBoard extends PureComponent {
     this.keyWidth = 0;
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.changeUpOrDownRequest && cancelAnimationFrame(this.changeUpOrDownRequest)
   }
 
   _changeUPOrDown = () => {
     //大小写转换
-      this.changeUpOrDownRequest && cancelAnimationFrame(this.changeUpOrDownRequest)
+    this.changeUpOrDownRequest && cancelAnimationFrame(this.changeUpOrDownRequest)
     this.changeUpOrDownRequest = requestAnimationFrame(() => {
       this.setState({ ...this.state, isUP: !this.state.isUP })
     })
@@ -56,7 +59,7 @@ export default class ABCKeyBoard extends PureComponent {
     return (
       <TouchableOpacity onPress={this._changeUPOrDown}>
         <View style={[styles.key, styles.otherKey, { width: rowHeight - vSpacing * 2 }]}>
-          {type === 'UP' ? <Image source={require('./images/shouzimudaxie.png')}/> : <Image source={require('./images/xiaoxie.png')}/>}
+          {type === 'UP' ? <Image source={require('./images/shouzimudaxie.png')} /> : <Image source={require('./images/xiaoxie.png')} />}
         </View>
       </TouchableOpacity>
     )
@@ -67,7 +70,7 @@ export default class ABCKeyBoard extends PureComponent {
     return (
       <TouchableOpacity onPress={this.props.onDelete} onLongPress={this.props.onClearAll}>
         <View style={[styles.key, styles.otherKey, { width: rowHeight - vSpacing * 2 }]}>
-          <Image source={require('./images/back.png')}/>
+          <Image source={require('./images/back.png')} />
         </View>
       </TouchableOpacity>
     )
@@ -111,35 +114,47 @@ export default class ABCKeyBoard extends PureComponent {
         width={width}
         keyWidth={this.keyWidth}
         onKeyPress={this.props.onKeyPress}
-        showTip = {this.props.showTip}
+        showTip={this.props.showTip}
       />
     )
   }
 
+
+
   _renderKeyBoard = (type) => {
-    if(type === 'UP') {
-      if(this.upRows === undefined) {
+    if (type === 'UP') {
+      if (this.upRows === undefined) {
         this.upRows = this._cacultateRows(type)
       }
-      return <UPKeyBoard rows={this.upRows}/>
+      return <UPKeyBoard rows={this.upRows} />
     } else {
-      if(this.downRows === undefined) {
+      if (this.downRows === undefined) {
         this.downRows = this._cacultateRows(type)
       }
-      return <DownKeyBoard rows={this.downRows}/>
+      return <DownKeyBoard rows={this.downRows} />
     }
   }
 
   _cacultateRows = (type) => {
     let curKeys = []
+    let randomKey = keysSeq
     if (type === 'UP') {
-      //渲染大写
-      curKeys = upKeys
+      randomKey = randomKey.map(p => p.toUpperCase())
     } else {
-      //渲染小写
-      curKeys = keys
+      randomKey = randomKey.map(p => p.toLowerCase())
     }
 
+    // if (type === 'UP') {
+    //   //渲染大写
+    //   curKeys = upKeys
+    // } else {
+    //   //渲染小写
+    //   curKeys = keys
+    // }
+
+    curKeys.push(randomKey.slice(0, 10))
+    curKeys.push(randomKey.slice(10, 19))
+    curKeys.push(randomKey.slice(19))  
     let rows = []
 
     let rowWidth = curKeys[0].length * this.keyWidth + hSpacing * (curKeys[0].length - 1)
@@ -182,7 +197,7 @@ export default class ABCKeyBoard extends PureComponent {
     return rows
   }
 
-  render() {
+  render () {
     console.log('render ABCKeyboard')
     const width = this.props.width;
     this.keyWidth = (width - (keys[0].length + 1) * hSpacing) / keys[0].length;
@@ -208,19 +223,20 @@ export default class ABCKeyBoard extends PureComponent {
 const rowHeight = 54
 const vSpacing = 6
 const hSpacing = 8
+const keysSeq = shuffle(['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm'])
 const keys = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm']]
 const upKeys = [
-  ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+  ['W', 'Q', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
   ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
   ['Z', 'X', 'C', 'V', 'B', 'N', 'M']]
 
 const styles = StyleSheet.create({
   keyboard: {
     backgroundColor: '#d8dbdf',
-      paddingBottom: DeviceInfo.isIPhoneX_deprecated ? 34 : 0,
+    paddingBottom: DeviceInfo.isIPhoneX_deprecated ? 34 : 0,
   },
   row: {
     height: rowHeight,
