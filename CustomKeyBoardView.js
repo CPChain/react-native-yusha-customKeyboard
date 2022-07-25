@@ -17,15 +17,12 @@ import {
 
 //提示
 import {KeyTip} from './views'
-
-import elementsTestId from 'elements-test-id';
-
 export default class KeyBoard extends Component{
-    state 
-    backSpaceRequest 
-    insertTextRequest 
-    clearFocusRequest 
-    clearAllRequest 
+    state
+    backSpaceRequest
+    insertTextRequest
+    clearFocusRequest
+    clearAllRequest
 
     static propTypes = {
         insertText: PropTypes.func.isRequired,
@@ -59,7 +56,7 @@ export default class KeyBoard extends Component{
     _clearFocus = () => {
         this.clearFocusRequest && cancelAnimationFrame(this.clearFocusRequest)
         this.clearFocusRequest = requestAnimationFrame(() => {
-            this.props.clearFocus(this.props.tag) 
+            this.props.clearFocus(this.props.tag)
             this.props.doneCallBack && this.props.doneCallBack(this.props.tag)
         })
     }
@@ -113,7 +110,7 @@ export default class KeyBoard extends Component{
     }
 
     render() {
-        const {KeyBoardView} = this.props 
+        const {KeyBoardView} = this.props
 
         return (
             <View
@@ -152,7 +149,7 @@ const styles = StyleSheet.create({
     container: {
       marginTop: Platform.OS == 'ios' ? 0 : 54,
       backgroundColor: 'transparent',
-      justifyContent: 'flex-end', 
+      justifyContent: 'flex-end',
       height: 252
     },
     keyBoard: {
