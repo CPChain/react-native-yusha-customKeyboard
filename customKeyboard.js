@@ -144,9 +144,9 @@ export class CustomTextInput extends Component {
     if (nextAppState === 'background') {
       //检查键盘
       if (
-        TextInput.State.currentlyFocusedInput() === findNodeHandle(this.input)
+        TextInput.State.currentlyFocusedInput ? TextInput.State.currentlyFocusedInput() : TextInput.State.currentlyFocusedField()  === findNodeHandle(this.input)
       ) {
-        TextInput.State.blurTextInput(TextInput.State.currentlyFocusedInput());
+        TextInput.State.blurTextInput(TextInput.State.currentlyFocusedInput ? TextInput.State.currentlyFocusedInput() : TextInput.State.currentlyFocusedField() );
         return true;
       }
     }

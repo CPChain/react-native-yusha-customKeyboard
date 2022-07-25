@@ -118,11 +118,11 @@ export default class AwareCusKeyBoardScrollView extends PureComponent {
     _onError = () => {}
 
     _updateScrollTo = () => {
-        if(TextInput.State.currentlyFocusedInput() == null) {
+        if(TextInput.State.currentlyFocusedInput ? TextInput.State.currentlyFocusedInput() : TextInput.State.currentlyFocusedField()  == null) {
             return
         }
 
-        const currentlyTfNode = TextInput.State.currentlyFocusedInput()
+        const currentlyTfNode = TextInput.State.currentlyFocusedInput ? TextInput.State.currentlyFocusedInput() : TextInput.State.currentlyFocusedField()
         const scrollViewNode = findNodeHandle(this.refs.scrollView)
 
         //显示和隐藏键盘
