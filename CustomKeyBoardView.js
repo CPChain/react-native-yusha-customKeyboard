@@ -133,10 +133,10 @@ export default class KeyBoard extends Component{
                     }
                     <KeyBoardView
                         {...this.props}
-                        onKeyPress={this._handleKeyPress}
-                        onDelete={this._handleDelete}
-                        onClearAll={this._handlerClearAll}
-                        showTip={this._showTip}
+                        onKeyPress={(key)=>this._handleKeyPress(key)}
+                        onDelete={()=>this._handleDelete()}
+                        onClearAll={()=>this._handlerClearAll()}
+                        showTip={(showTipData)=>this._showTip(showTipData)}
                     />
                 </View>
                 {this._renderTip()}

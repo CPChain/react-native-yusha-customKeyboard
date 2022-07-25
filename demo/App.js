@@ -42,6 +42,12 @@ const App = () => {
           customKeyboardType="testKeyboard"
           placeholder="testKeyboard"
         />
+
+        <CustomKeyboard.CustomTextInput
+          useSystemSafeKeyboard={true}
+          customKeyboardType="safeKeyBoard"
+          placeholder="system Keyboard"
+        />
       </CustomKeyboard.AwareCusKeyBoardScrollView>
     </SafeAreaView>
   );
