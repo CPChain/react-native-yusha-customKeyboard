@@ -12,7 +12,6 @@ import {
   AppState
 } from 'react-native';
 import CustomKeyBoardView from './CustomKeyBoardView';
-import environment from '../../environments';
 
 const {CustomKeyboard} = NativeModules;
 
@@ -122,7 +121,7 @@ export class CustomTextInput extends Component {
   }
   componentDidMount() {
     this.installTime = setTimeout(() => {
-      if (!environment.useSystemSafeKeyboard) {
+      if (!this.props.useSystemSafeKeyboard) {
         install(findNodeHandle(this.input), this.props.customKeyboardType);
       }
 
@@ -197,7 +196,7 @@ export class CustomTextInput extends Component {
   render() {
     const {customKeyboardType, secureTextEntry, ...others} = this.props;
     let secureTextEntryOption = secureTextEntry
-    if (Platform.OS === 'ios' && environment.useSystemSafeKeyboard ) {
+    if (Platform.OS === 'ios' && this.props.useSystemSafeKeyboard ) {
       // TODO iOS 系统安全键盘在模拟上使用 detox 调用时不能正常使用，故先忽略
       secureTextEntryOption = false
     }
@@ -222,7 +221,7 @@ export function keyBoardAPI(keyBoardName) {
             insertText={insertText}
             clearFocus={clearFocus}
             clearAll={clearAll}
-            backSpace={backSpace} 
+            backSpace={backSpace}
             // doneCallBack={doneCallBack}
             KeyBoardView={KeyBoardView}
             {...this.props}

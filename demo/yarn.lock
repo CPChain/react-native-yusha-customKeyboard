@@ -766,8 +766,9 @@
     "exec-sh" "^0.3.2"
     "minimist" "^1.2.0"
 
-"@cpchain-tools/react-native-keyboard@file:..":
-  "resolved" "file:.."
+"@cpchain-tools/react-native-keyboard@^0.0.1":
+  "integrity" "sha512-4xNfpmqKTQe0dMTmr7aZuwdnm2dj9fFXVFU1DR8Q3lZd+cTWkdX4neIymbsYy0zLDUSlFdy2zfztn8qQ1vXxig=="
+  "resolved" "https://registry.npmjs.org/@cpchain-tools/react-native-keyboard/-/react-native-keyboard-0.0.1.tgz"
   "version" "0.0.1"
   dependencies:
     "react-native-svg" "5.5.1"
@@ -2142,6 +2143,13 @@
     "map-visit" "^1.0.0"
     "object-visit" "^1.0.0"
 
+"color-convert@^1.3.0":
+  "integrity" "sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg=="
+  "resolved" "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz"
+  "version" "1.9.3"
+  dependencies:
+    "color-name" "1.1.3"
+
 "color-convert@^1.9.0":
   "integrity" "sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg=="
   "resolved" "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz"
@@ -2156,7 +2164,7 @@
   dependencies:
     "color-name" "~1.1.4"
 
-"color-name@~1.1.4":
+"color-name@^1.0.0", "color-name@~1.1.4":
   "integrity" "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="
   "resolved" "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz"
   "version" "1.1.4"
@@ -2165,6 +2173,22 @@
   "integrity" "sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw=="
   "resolved" "https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz"
   "version" "1.1.3"
+
+"color-string@^0.3.0":
+  "integrity" "sha512-sz29j1bmSDfoAxKIEU6zwoIZXN6BrFbAMIhfYCNyiZXBDuU/aiHlN84lp/xDzL2ubyFhLDobHIlU1X70XRrMDA=="
+  "resolved" "https://registry.npmjs.org/color-string/-/color-string-0.3.0.tgz"
+  "version" "0.3.0"
+  dependencies:
+    "color-name" "^1.0.0"
+
+"color@^0.11.1":
+  "integrity" "sha512-Ajpjd8asqZ6EdxQeqGzU5WBhhTfJ/0cA4Wlbre7e5vXfmDSmda7Ov6jeKoru+b0vHcb1CqvuroTHp5zIWzhVMA=="
+  "resolved" "https://registry.npmjs.org/color/-/color-0.11.4.tgz"
+  "version" "0.11.4"
+  dependencies:
+    "clone" "^1.0.2"
+    "color-convert" "^1.3.0"
+    "color-string" "^0.3.0"
 
 "colorette@^1.0.7":
   "integrity" "sha512-Y2oEozpomLn7Q3HFP7dpww7AtMJplbM9lGZP6RDfHqmbeRjiwRg4n6VM6j4KLmRke85uWEI7JqF17f3pqdRA0g=="
@@ -4465,7 +4489,7 @@
   "resolved" "https://registry.npmjs.org/lodash.truncate/-/lodash.truncate-4.4.2.tgz"
   "version" "4.4.2"
 
-"lodash@^4.17.10", "lodash@^4.17.15", "lodash@^4.7.0":
+"lodash@^4.16.6", "lodash@^4.17.10", "lodash@^4.17.15", "lodash@^4.7.0":
   "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
   "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   "version" "4.17.21"
@@ -5426,7 +5450,7 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types@^15.8.1":
+"prop-types@^15.5.8", "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -5496,7 +5520,15 @@
   "resolved" "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.7.tgz"
   "version" "0.0.7"
 
-"react-native@*", "react-native@0.69.2":
+"react-native-svg@5.5.1":
+  "integrity" "sha512-+RGNhBvwEMFRGeEtG2waIp1mzNyTKm/cLcynC4otgnXAcTXzuWsz8uq695GekkJ49BYWAtNyaIs8ezettU+0gA=="
+  "resolved" "https://registry.npmjs.org/react-native-svg/-/react-native-svg-5.5.1.tgz"
+  "version" "5.5.1"
+  dependencies:
+    "color" "^0.11.1"
+    "lodash" "^4.16.6"
+
+"react-native@*", "react-native@>=0.50.0", "react-native@0.69.2":
   "integrity" "sha512-9CdnnAtGYokbBJRFr2VesAOO+BODptpsrwGk2yunHmDM7zHymFeFW1eUS6zDbnxO6yOVgdt7fi7czlkTJrJkuw=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.69.2.tgz"
   "version" "0.69.2"
@@ -5557,7 +5589,7 @@
     "react-shallow-renderer" "^16.13.1"
     "scheduler" "^0.21.0"
 
-"react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@18.0.0":
+"react@*", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@18.0.0":
   "integrity" "sha512-x+VL6wbT4JRVPm7EGxXhZ8w8LTROaxPXOqhlGyVSrv0sB1jkyFGgXxJ8LVoPRLvPR6/CIZGFmfzqUa2NYeMr2A=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.0.0.tgz"
   "version" "18.0.0"
