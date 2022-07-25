@@ -113,7 +113,7 @@ AppRegistry.registerComponent('CustomKeyboard', () => CustomKeyboardContainer);
 export class CustomTextInput extends Component {
   static propTypes = {
     ...TextInput.propTypes,
-    customKeyboardType: PropTypes.string,
+    customKeyboardType: PropTypes.string
   };
   constructor() {
     super(...arguments);
@@ -144,9 +144,9 @@ export class CustomTextInput extends Component {
     if (nextAppState === 'background') {
       //检查键盘
       if (
-        TextInput.State.currentlyFocusedField() === findNodeHandle(this.input)
+        TextInput.State.currentlyFocusedInput() === findNodeHandle(this.input)
       ) {
-        TextInput.State.blurTextInput(TextInput.State.currentlyFocusedField());
+        TextInput.State.blurTextInput(TextInput.State.currentlyFocusedInput());
         return true;
       }
     }

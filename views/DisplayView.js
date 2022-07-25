@@ -1,9 +1,9 @@
 //@flow
 
 import React, { Component } from 'react';
-import { 
-  View, 
-  Text, 
+import {
+  View,
+  Text,
   StyleSheet,
   Dimensions,
 } from 'react-native';
@@ -14,12 +14,12 @@ const HEIGHT = screen.height;
 
 export default class Display extends Component {
 
-  view 
-  state 
+  view
+  state
 
   constructor() {
     super(...arguments);
-    
+
     this.state = { enable: this.props.enable };
   }
 
@@ -51,7 +51,7 @@ export default class Display extends Component {
   }
 
   render() {
-    
+
     if (this.state.enable == false) {
       if (this.props.keepAlive != true) return null
       //懒加载
@@ -59,7 +59,7 @@ export default class Display extends Component {
         return null
       }
     }
-      
+
     return (
       <View ref={this._onRef} style={[this.props.style, this.enableStyle.bind(this)()]}>
         {this.props.children}
