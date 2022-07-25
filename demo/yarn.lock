@@ -766,10 +766,10 @@
     "exec-sh" "^0.3.2"
     "minimist" "^1.2.0"
 
-"@cpchain-tools/react-native-keyboard@^0.0.3":
-  "integrity" "sha512-DAFCzfjXKtZIm+5oljAVxD5Tx3TkNDV/tJbXubcTDa1a5qSOhPFR7J50WBBd3OfIBbUG9SSXRM798x/3gB/uwQ=="
-  "resolved" "https://registry.npmjs.org/@cpchain-tools/react-native-keyboard/-/react-native-keyboard-0.0.3.tgz"
-  "version" "0.0.3"
+"@cpchain-tools/react-native-keyboard@^0.0.5":
+  "integrity" "sha512-1yTxL+UJ11uPk1viGfUpvxvcseXSDKkDbtbaV8benpP6n+hax/ZbxsIBluPZnnPSnYqmikEEpmPSjPPACAh8lQ=="
+  "resolved" "https://registry.npmjs.org/@cpchain-tools/react-native-keyboard/-/react-native-keyboard-0.0.5.tgz"
+  "version" "0.0.5"
   dependencies:
     "react-native-svg" "5.5.1"
 
