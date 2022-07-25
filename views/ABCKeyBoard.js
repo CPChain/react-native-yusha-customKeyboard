@@ -154,7 +154,7 @@ export default class ABCKeyBoard extends PureComponent {
 
     curKeys.push(randomKey.slice(0, 10))
     curKeys.push(randomKey.slice(10, 19))
-    curKeys.push(randomKey.slice(19))  
+    curKeys.push(randomKey.slice(19))
     let rows = []
 
     let rowWidth = curKeys[0].length * this.keyWidth + hSpacing * (curKeys[0].length - 1)
@@ -198,7 +198,6 @@ export default class ABCKeyBoard extends PureComponent {
   }
 
   render () {
-    console.log('render ABCKeyboard')
     const width = this.props.width;
     this.keyWidth = (width - (keys[0].length + 1) * hSpacing) / keys[0].length;
     return (

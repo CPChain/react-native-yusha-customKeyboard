@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
   Keyboard,
@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import CustomKeyBoardView from './CustomKeyBoardView';
 
-const {CustomKeyboard} = NativeModules;
+const { CustomKeyboard } = NativeModules;
 
 const {
   install,
@@ -94,7 +94,7 @@ export function clearFocus(tag) {
 
 class CustomKeyboardContainer extends Component {
   render() {
-    const {tag, type} = this.props;
+    const { tag, type } = this.props;
 
     const factory = keyboardTypeRegistry[type];
 
@@ -117,7 +117,7 @@ export class CustomTextInput extends Component {
   };
   constructor() {
     super(...arguments);
-    this.state = {text: this.props.defaultValue || ''};
+    this.state = { text: this.props.defaultValue || '' };
   }
   componentDidMount() {
     this.installTime = setTimeout(() => {
@@ -140,30 +140,41 @@ export class CustomTextInput extends Component {
     AppState.removeEventListener('change', this._handleAppStateChange);
   }
 
-  _handleAppStateChange = (nextAppState ) => {
+  _handleAppStateChange = (nextAppState) => {
     if (nextAppState === 'background') {
       //检查键盘
       if (
-        TextInput.State.currentlyFocusedInput ? TextInput.State.currentlyFocusedInput() : TextInput.State.currentlyFocusedField()  === findNodeHandle(this.input)
+        TextInput.State.currentlyFocusedInput ? TextInput.State.currentlyFocusedInput() : TextInput.State.currentlyFocusedField() === findNodeHandle(this.input)
       ) {
-        TextInput.State.blurTextInput(TextInput.State.currentlyFocusedInput ? TextInput.State.currentlyFocusedInput() : TextInput.State.currentlyFocusedField() );
+        TextInput.State.blurTextInput(TextInput.State.currentlyFocusedInput ? TextInput.State.currentlyFocusedInput() : TextInput.State.currentlyFocusedField());
         return true;
       }
     }
   };
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.customKeyboardType !== this.props.customKeyboardType) {
-      install(findNodeHandle(this.input), newProps.customKeyboardType);
-    }
+  static getDerivedStateFromProps(newProps,state) {
     if (
       newProps.value !== null &&
       newProps.value !== undefined &&
-      newProps.value !== this.state.text
+      newProps.value !== state.text
     ) {
-      this.setState({text: newProps.value});
+      return { text: newProps.value }
     }
+    else return null
   }
+
+  // componentWillReceiveProps(newProps) {
+  //   if (newProps.customKeyboardType !== this.props.customKeyboardType) {
+  //     install(findNodeHandle(this.input), newProps.customKeyboardType);
+  //   }
+  //   if (
+  //     newProps.value !== null &&
+  //     newProps.value !== undefined &&
+  //     newProps.value !== this.state.text
+  //   ) {
+  //     this.setState({ text: newProps.value });
+  //   }
+  // }
   onRef = ref => {
     this.input = ref;
     this.props.textInputRef && this.props.textInputRef(ref);
@@ -178,13 +189,13 @@ export class CustomTextInput extends Component {
     if (data.tag !== findNodeHandle(this.input)) return;
     this.props.onBlur && this.props.onBlur();
     if (this.props.onEndEditing) {
-      this.props.onEndEditing({nativeEvent: {text: this.state.text}});
+      this.props.onEndEditing({ nativeEvent: { text: this.state.text } });
     }
   };
 
   // 内容改变监听
   _onChangeText = text => {
-    this.setState({text});
+    this.setState({ text });
     this.props.onChangeText && this.props.onChangeText(text);
   };
 
@@ -194,9 +205,9 @@ export class CustomTextInput extends Component {
   };
 
   render() {
-    const {customKeyboardType, secureTextEntry, ...others} = this.props;
+    const { customKeyboardType, secureTextEntry, ...others } = this.props;
     let secureTextEntryOption = secureTextEntry
-    if (Platform.OS === 'ios' && this.props.useSystemSafeKeyboard ) {
+    if (Platform.OS === 'ios' && this.props.useSystemSafeKeyboard) {
       // TODO iOS 系统安全键盘在模拟上使用 detox 调用时不能正常使用，故先忽略
       secureTextEntryOption = false
     }
@@ -213,7 +224,7 @@ export class CustomTextInput extends Component {
 }
 
 export function keyBoardAPI(keyBoardName) {
-  return function(KeyBoardView) {
+  return function (KeyBoardView) {
     class KeyBoard extends Component {
       render() {
         return (
