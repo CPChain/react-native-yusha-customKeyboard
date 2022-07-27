@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "e2e:build": "detox build -c android",
+    "e2e:test": "detox test -c android"
   },
   "dependencies": {
     "@cpchain-tools/react-native-keyboard": "^0.0.8",
@@ -19,8 +21,10 @@
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
     "babel-jest": "^26.6.3",
+    "detox": "^19.8.2",
     "eslint": "^7.32.0",
     "jest": "^26.6.3",
+    "jest-circus": "^27.5.1",
     "metro-react-native-babel-preset": "^0.70.3",
     "react-test-renderer": "18.0.0"
   },

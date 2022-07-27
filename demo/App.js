@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
+import {Text, SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 require('./js/RegisterKeyboard');
@@ -23,6 +23,7 @@ const App = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <Text testID="welcome">welcome</Text>
 
       <CustomKeyboard.AwareCusKeyBoardScrollView style={{flex: 1}}>
         <CustomKeyboard.CustomTextInput
