@@ -53,7 +53,7 @@
     export type AwareCusKeyBoardScrollView = ScrollViewStatic;
 
     //CustomTextInput
-    type CustomTextInputProps = { customKeyboardType: string }
+    type CustomTextInputProps = {useSystemSafeKeyboard:boolean, customKeyboardType: string }
     type CustomTextInputStatic = React.ComponentClass<TextInputProps & CustomTextInputProps>
     export var CustomTextInput: CustomTextInputStatic;
     export type CustomTextInput = CustomTextInputStatic;
