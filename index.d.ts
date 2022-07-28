@@ -1,4 +1,4 @@
-declare module "react-native-yusha-customkeyboard" {
+
     import React from 'react'
     import {
         ComponentType,
@@ -38,13 +38,13 @@ declare module "react-native-yusha-customkeyboard" {
         keyboardType: 'decimal-pad' | 'number-pad', //可切换为ABC的键盘 | 单纯的数字键盘
         disableDot: boolean, //是否有小数点
     }
-    class NumberKeyBoardViewComponent extends React.Component<NumberKeyBoardViewProps> { }
-    const NumberKeyBoardViewBase: Constructor<NativeMethodsMixin> & typeof NumberKeyBoardViewComponent;
+    declare class NumberKeyBoardViewComponent extends React.Component<NumberKeyBoardViewProps> { }
+   declare  const NumberKeyBoardViewBase: Constructor<NativeMethodsMixin> & typeof NumberKeyBoardViewComponent;
     export class NumberKeyBoardView extends NumberKeyBoardViewBase { }
 
     //SafeKeyBoardView
-    class SafeKeyBoardViewComponent extends React.Component<{}> { }
-    const SafeKeyBoardViewBase: Constructor<NativeMethodsMixin> & typeof SafeKeyBoardViewComponent;
+    declare class SafeKeyBoardViewComponent extends React.Component<{}> { }
+    declare const SafeKeyBoardViewBase: Constructor<NativeMethodsMixin> & typeof SafeKeyBoardViewComponent;
     export class SafeKeyBoardView extends SafeKeyBoardViewBase { }
 
     //AwareCusKeyBoardScrollView
@@ -67,4 +67,3 @@ declare module "react-native-yusha-customkeyboard" {
     export function addKeyBoardHideListener(listener): KeyBoardSubscription
     export function addKeyBoardShowListener(listener): KeyBoardSubscription
     export function removeKeyBoardListener(subscription: KeyBoardSubscription): void
-}
