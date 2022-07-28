@@ -27,23 +27,10 @@ const App = () => {
 
       <CustomKeyboard.AwareCusKeyBoardScrollView style={{flex: 1}}>
         <CustomKeyboard.CustomTextInput
-          customKeyboardType="numberKeyBoard"
-          placeholder="numberKeyBoard"
-          style={{marginTop: 20}}
-        />
-        <CustomKeyboard.CustomTextInput
-          customKeyboardType="numberKeyBoardWithDot"
-          placeholder="numberKeyBoardWithDot"
-        />
-        <CustomKeyboard.CustomTextInput
+          testID="safeKeyBoardInput"
           customKeyboardType="safeKeyBoard"
           placeholder="safeKeyBoard"
         />
-        <CustomKeyboard.CustomTextInput
-          customKeyboardType="testKeyboard"
-          placeholder="testKeyboard"
-        />
-
         <CustomKeyboard.CustomTextInput
           useSystemSafeKeyboard={true}
           customKeyboardType="safeKeyBoard"
