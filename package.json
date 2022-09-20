@@ -1,6 +1,6 @@
 {
   "name": "@cpchain-tools/react-native-keyboard",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "react native custom keyboard",
   "main": "index.js",
   "types": "index.d.ts",
@@ -24,7 +24,7 @@
   "author": "yusha",
   "license": "ISC",
   "engines":{
-    "node": "16.13.0",
-    "npm":"8.1.0"
+    "node": ">=16.13.0",
+    "npm":">=8.1.0"
   }
 }

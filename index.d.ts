@@ -39,7 +39,7 @@
         disableDot: boolean, //是否有小数点
     }
     declare class NumberKeyBoardViewComponent extends React.Component<NumberKeyBoardViewProps> { }
-   declare  const NumberKeyBoardViewBase: Constructor<NativeMethodsMixin> & typeof NumberKeyBoardViewComponent;
+    declare const NumberKeyBoardViewBase: Constructor<NativeMethodsMixin> & typeof NumberKeyBoardViewComponent;
     export class NumberKeyBoardView extends NumberKeyBoardViewBase { }
 
     //SafeKeyBoardView
