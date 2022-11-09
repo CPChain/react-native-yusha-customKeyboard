@@ -70,11 +70,7 @@ export function addKeyBoardHideListener(listener) {
 }
 
 export function removeKeyBoardListener(subscribtion) {
-  if (Platform.OS === 'android') {
-    NativeAppEventEmitter.removeSubscription(subscribtion);
-  } else {
-    Keyboard.removeListener(subscribtion);
-  }
+  subscribtion.remove()
 }
 
 export function register(type, factory) {
