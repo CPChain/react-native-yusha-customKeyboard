@@ -1,8 +1,9 @@
 node_modules
 android/app/build
 android/build
+android/.gradle
 demo/android/app/build
-
+demo/android/gradle.properties
 demo/artifacts
 # OSX
 #
